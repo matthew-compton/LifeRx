@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LifeRx</string>
+    <string name="app_description">Convert all of the white squares into red squares to win!</string>
+
+</resources>
