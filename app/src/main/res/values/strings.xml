@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">LifeRx</string>
-    <string name="app_description">Make all of the tiles black to win!</string>
+    <string name="app_description">Eradicate the white tiles to win!</string>
 
     <string name="restart">Restart</string>
     <string name="victory">Victory!</string>

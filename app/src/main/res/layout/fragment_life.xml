@@ -39,49 +39,49 @@
 
         <TableRow android:layout_weight="1">
 
-            <Button
+            <ToggleButton
                 android:id="@+id/button1"
-                style="@style/LifeButton"/>
+                style="@style/LifeToggleButton"/>
 
-            <Button
+            <ToggleButton
                 android:id="@+id/button2"
-                style="@style/LifeButton"/>
+                style="@style/LifeToggleButton"/>
 
-            <Button
+            <ToggleButton
                 android:id="@+id/button3"
-                style="@style/LifeButton"/>
+                style="@style/LifeToggleButton"/>
 
         </TableRow>
 
         <TableRow android:layout_weight="1">
 
-            <Button
+            <ToggleButton
                 android:id="@+id/button4"
-                style="@style/LifeButton"/>
+                style="@style/LifeToggleButton"/>
 
-            <Button
+            <ToggleButton
                 android:id="@+id/button5"
-                style="@style/LifeButton"/>
+                style="@style/LifeToggleButton"/>
 
-            <Button
+            <ToggleButton
                 android:id="@+id/button6"
-                style="@style/LifeButton"/>
+                style="@style/LifeToggleButton"/>
 
         </TableRow>
 
         <TableRow android:layout_weight="1">
 
-            <Button
+            <ToggleButton
                 android:id="@+id/button7"
-                style="@style/LifeButton"/>
+                style="@style/LifeToggleButton"/>
 
-            <Button
+            <ToggleButton
                 android:id="@+id/button8"
-                style="@style/LifeButton"/>
+                style="@style/LifeToggleButton"/>
 
-            <Button
+            <ToggleButton
                 android:id="@+id/button9"
-                style="@style/LifeButton"/>
+                style="@style/LifeToggleButton"/>
 
         </TableRow>
 

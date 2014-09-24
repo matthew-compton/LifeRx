@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,47 +22,45 @@ import rx.subjects.PublishSubject;
 
 public class LifeFragment extends Fragment {
 
-    @InjectView(R.id.button1) Button tileButton1;
-    @InjectView(R.id.button2) Button tileButton2;
-    @InjectView(R.id.button3) Button tileButton3;
-    @InjectView(R.id.button4) Button tileButton4;
-    @InjectView(R.id.button5) Button tileButton5;
-    @InjectView(R.id.button6) Button tileButton6;
-    @InjectView(R.id.button7) Button tileButton7;
-    @InjectView(R.id.button8) Button tileButton8;
-    @InjectView(R.id.button9) Button tileButton9;
+    @InjectView(R.id.button1) ToggleButton tileToggleButton1;
+    @InjectView(R.id.button2) ToggleButton tileToggleButton2;
+    @InjectView(R.id.button3) ToggleButton tileToggleButton3;
+    @InjectView(R.id.button4) ToggleButton tileToggleButton4;
+    @InjectView(R.id.button5) ToggleButton tileToggleButton5;
+    @InjectView(R.id.button6) ToggleButton tileToggleButton6;
+    @InjectView(R.id.button7) ToggleButton tileToggleButton7;
+    @InjectView(R.id.button8) ToggleButton tileToggleButton8;
+    @InjectView(R.id.button9) ToggleButton tileToggleButton9;
     @InjectView(R.id.button_restart) Button buttonRestart;
 
-    private List<Button> tileButtons;
+    private List<ToggleButton> tileButtons;
 
     Subscription _subscription;
-    PublishSubject<Button> _resultEmitterSubject;
+    PublishSubject<ToggleButton> _resultEmitterSubject;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_life, container, false);
         ButterKnife.inject(this, layout);
 
-        tileButtons = new ArrayList<Button>() {{
-            add(tileButton1);
-            add(tileButton2);
-            add(tileButton3);
-            add(tileButton4);
-            add(tileButton5);
-            add(tileButton6);
-            add(tileButton7);
-            add(tileButton8);
-            add(tileButton9);
+        tileButtons = new ArrayList<ToggleButton>() {{
+            add(tileToggleButton1);
+            add(tileToggleButton2);
+            add(tileToggleButton3);
+            add(tileToggleButton4);
+            add(tileToggleButton5);
+            add(tileToggleButton6);
+            add(tileToggleButton7);
+            add(tileToggleButton8);
+            add(tileToggleButton9);
         }};
 
         _resultEmitterSubject = PublishSubject.create();
-        _subscription = _resultEmitterSubject.asObservable().subscribe(new Action1<Button>() {
+        _subscription = _resultEmitterSubject.asObservable().subscribe(new Action1<ToggleButton>() {
             @Override
-            public void call(Button button) {
-                button.setEnabled(false);
-                // TODO - start timer if not started
+            public void call(ToggleButton button) {
                 if (isVictory()) {
-                    // TODO - stop timer
+                    disable();
                     Toast.makeText(getActivity(), getString(R.string.victory), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -71,24 +70,31 @@ public class LifeFragment extends Fragment {
     }
 
     @OnClick({R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9})
-    public void activate(Button button) {
-        _resultEmitterSubject.onNext(button);
+    public void activate(ToggleButton toggleButton) {
+        _resultEmitterSubject.onNext(toggleButton);
     }
 
     @OnClick(R.id.button_restart)
     public void restart() {
-        for (Button button : tileButtons) {
-            button.setEnabled(true);
+        for (ToggleButton toggleButton : tileButtons) {
+            toggleButton.setEnabled(true);
+            toggleButton.setChecked(false);
         }
     }
 
     private boolean isVictory() {
-        for (Button button : tileButtons) {
-            if (button.isEnabled()) {
+        for (ToggleButton toggleButton : tileButtons) {
+            if (!toggleButton.isChecked()) {
                 return false;
             }
         }
         return true;
+    }
+
+    private void disable() {
+        for (ToggleButton toggleButton : tileButtons) {
+            toggleButton.setEnabled(false);
+        }
     }
 
     @Override
