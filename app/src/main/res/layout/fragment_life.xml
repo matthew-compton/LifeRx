@@ -87,4 +87,12 @@
 
     </TableLayout>
 
+    <Button
+        android:id="@+id/button_restart"
+        android:text="@string/restart"
+        android:textColor="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"/>
+
 </FrameLayout>
