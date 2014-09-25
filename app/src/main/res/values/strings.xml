@@ -4,6 +4,9 @@
     <string name="app_name">LifeRx</string>
     <string name="app_description">Eradicate the white tiles to win!</string>
 
+    <string name="time">Time:</string>
+    <string name="moves">Moves:</string>
+
     <string name="restart">Restart</string>
     <string name="victory">Victory!</string>
     <string name="defeat">Defeat!</string>

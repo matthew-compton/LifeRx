@@ -17,54 +17,84 @@
         android:gravity="center">
 
         <TextView
-            android:text="@string/app_name"
-            android:textSize="@dimen/font_size_large"
-            android:textColor="@android:color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-
-        <TextView
             android:text="@string/app_description"
             android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="15dp">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding">
 
-            <TextView
-                android:id="@+id/timer"
-                android:text="@string/time_max"
-                android:textSize="@dimen/font_size_large"
-                android:textColor="@android:color/white"
-                android:gravity="center"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="7"
-                />
+                android:orientation="horizontal">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/timer_description"
+                    android:text="@string/time"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
 
-            <TextView
-                android:id="@+id/counter"
-                android:text="@string/zero"
-                android:textSize="@dimen/font_size_large"
-                android:textColor="@android:color/white"
-                android:gravity="center"
-                android:layout_width="0dp"
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/counter_description"
+                    android:text="@string/moves"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="2"
-                />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/timer"
+                    android:text="@string/time_max"
+                    android:textSize="@dimen/font_size_large"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="7"
+                    />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/counter"
+                    android:text="@string/zero"
+                    android:textSize="@dimen/font_size_large"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="2"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -73,7 +103,8 @@
     <TableLayout
         android:layout_width="@dimen/grid_size"
         android:layout_height="@dimen/grid_size"
-        android:layout_gravity="center">
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="@dimen/padding">
 
         <TableRow android:layout_weight="1">
 
@@ -124,13 +155,5 @@
         </TableRow>
 
     </TableLayout>
-
-    <Button
-        android:id="@+id/restart"
-        android:text="@string/restart"
-        android:textColor="@android:color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"/>
 
 </FrameLayout>

@@ -5,9 +5,11 @@ import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -34,7 +36,6 @@ public class LifeFragment extends Fragment {
     @InjectView(R.id.button8) ToggleButton tileToggleButton8;
     @InjectView(R.id.button9) ToggleButton tileToggleButton9;
 
-    @InjectView(R.id.restart) Button buttonRestart;
     @InjectView(R.id.timer) TextView mTimerTextView;
     @InjectView(R.id.counter) TextView mCounterTextView;
 
@@ -81,7 +82,25 @@ public class LifeFragment extends Fragment {
                 }
         );
 
+        setHasOptionsMenu(true);
         return layout;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_life, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.restart:
+                restart();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -97,8 +116,7 @@ public class LifeFragment extends Fragment {
         mToggleButtonPublishSubject.onNext(toggleButton);
     }
 
-    @OnClick(R.id.restart)
-    public void restart() {
+    private void restart() {
         mCountDownTimer.cancel();
         mIsStarted = false;
         mCounterTextView.setText(getString(R.string.zero));
