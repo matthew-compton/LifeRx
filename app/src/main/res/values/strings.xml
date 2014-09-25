@@ -6,5 +6,9 @@
 
     <string name="restart">Restart</string>
     <string name="victory">Victory!</string>
+    <string name="defeat">Defeat!</string>
+
+    <string name="time_max">10</string>
+    <string name="zero">0</string>
 
 </resources>

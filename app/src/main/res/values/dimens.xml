@@ -1,6 +1,10 @@
 <resources>
 
+    <!-- Game dimensions -->
     <dimen name="grid_size">300dp</dimen>
+
+    <!-- Font sizes -->
+    <dimen name="font_size_large">30sp</dimen>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
