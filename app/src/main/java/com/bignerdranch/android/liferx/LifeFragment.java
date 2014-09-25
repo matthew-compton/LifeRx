@@ -59,6 +59,7 @@ public class LifeFragment extends Fragment {
         _subscription = _resultEmitterSubject.asObservable().subscribe(new Action1<ToggleButton>() {
             @Override
             public void call(ToggleButton button) {
+                toggleAdjacent(button);
                 if (isVictory()) {
                     disable();
                     Toast.makeText(getActivity(), getString(R.string.victory), Toast.LENGTH_SHORT).show();
@@ -67,6 +68,54 @@ public class LifeFragment extends Fragment {
         });
 
         return layout;
+    }
+
+    private void toggleAdjacent(ToggleButton toggleButton) {
+        int id = toggleButton.getId();
+        switch (id) {
+            case R.id.button1:
+                tileToggleButton2.setChecked(!tileToggleButton2.isChecked());
+                tileToggleButton4.setChecked(!tileToggleButton4.isChecked());
+                break;
+            case R.id.button2:
+                tileToggleButton1.setChecked(!tileToggleButton1.isChecked());
+                tileToggleButton3.setChecked(!tileToggleButton3.isChecked());
+                tileToggleButton5.setChecked(!tileToggleButton5.isChecked());
+                break;
+            case R.id.button3:
+                tileToggleButton2.setChecked(!tileToggleButton2.isChecked());
+                tileToggleButton6.setChecked(!tileToggleButton6.isChecked());
+                break;
+            case R.id.button4:
+                tileToggleButton1.setChecked(!tileToggleButton1.isChecked());
+                tileToggleButton5.setChecked(!tileToggleButton5.isChecked());
+                tileToggleButton7.setChecked(!tileToggleButton7.isChecked());
+                break;
+            case R.id.button5:
+                tileToggleButton2.setChecked(!tileToggleButton2.isChecked());
+                tileToggleButton4.setChecked(!tileToggleButton4.isChecked());
+                tileToggleButton6.setChecked(!tileToggleButton6.isChecked());
+                tileToggleButton8.setChecked(!tileToggleButton8.isChecked());
+                break;
+            case R.id.button6:
+                tileToggleButton3.setChecked(!tileToggleButton3.isChecked());
+                tileToggleButton5.setChecked(!tileToggleButton5.isChecked());
+                tileToggleButton9.setChecked(!tileToggleButton9.isChecked());
+                break;
+            case R.id.button7:
+                tileToggleButton4.setChecked(!tileToggleButton4.isChecked());
+                tileToggleButton8.setChecked(!tileToggleButton8.isChecked());
+                break;
+            case R.id.button8:
+                tileToggleButton5.setChecked(!tileToggleButton5.isChecked());
+                tileToggleButton7.setChecked(!tileToggleButton7.isChecked());
+                tileToggleButton9.setChecked(!tileToggleButton9.isChecked());
+                break;
+            case R.id.button9:
+                tileToggleButton6.setChecked(!tileToggleButton6.isChecked());
+                tileToggleButton8.setChecked(!tileToggleButton8.isChecked());
+                break;
+        }
     }
 
     @OnClick({R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9})
