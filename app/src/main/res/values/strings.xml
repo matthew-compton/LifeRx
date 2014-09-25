@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">LifeRx</string>
+    <string name="app_name">RxLife</string>
     <string name="app_description">Eradicate the white tiles to win!</string>
 
     <string name="time">Time:</string>

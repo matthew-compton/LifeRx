@@ -104,7 +104,7 @@
         android:layout_width="@dimen/grid_size"
         android:layout_height="@dimen/grid_size"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="@dimen/padding">
+        android:layout_marginBottom="@dimen/padding_heavy">
 
         <TableRow android:layout_weight="1">
 
